@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Brand Colors - Modern Tech/Medical Palette */
+    --color-brand-primary: #3b82f6;
+    /* Blue 500 - Vibrant Blue */
+    --color-brand-secondary: #0ea5e9;
+    /* Sky 500 - Friendly Blue */
+    --color-brand-accent: #10b981;
+    /* Emerald 500 - Success/Price */
+    --color-brand-warm: #f43f5e;
+    /* Rose 500 - Urgent/Alert */
+
+    /* Backgrounds - Moving away from stark white/gray */
+    --background: #f8fafc;
+    /* Slate 50 - Very subtle cool gray */
+    --foreground: #0f172a;
+    /* Slate 900 - Soft Black */
+
+    --card: #ffffff;
+    --card-foreground: #1e293b;
+    /* Slate 800 */
+
+    --popover: #ffffff;
+    --popover-foreground: #0f172a;
+
+    --muted: #f1f5f9;
+    /* Slate 100 */
+    --muted-foreground: #64748b;
+    /* Slate 500 */
+
+    --accent: #f0f9ff;
+    /* Sky 50 */
+    --accent-foreground: #0284c7;
+    /* Sky 600 */
+
+    /* Borders */
+    --border: #e2e8f0;
+    /* Slate 200 */
+    --input: #e2e8f0;
+    --ring: #3b82f6;
+    /* Blue 500 */
+
+    /* Radius - More modern rounded corners */
+    --radius: 0.75rem;
+  }
+}
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-secondary: var(--color-brand-secondary);
+  --color-brand-accent: var(--color-brand-accent);
+  --color-brand-warm: var(--color-brand-warm);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  background-image: radial-gradient(at 0% 0%, hsla(217, 91%, 95%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(186, 100%, 94%, 1) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Custom Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Card Hover */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Premium shadows */
+.shadow-premium {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
